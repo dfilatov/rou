@@ -1,0 +1,28 @@
+{
+    "name" : "rou",
+    "version" : "0.0.1",
+    "description" : "Router",
+    "homepage" : "https://github.com/dfilatov/rou",
+    "keywords" : ["router"],
+    "author" : "Dmitry Filatov <dfilatov@yandex-team.ru>",
+    "contributors" : [{
+        "name"  : "Dmitry Filatov",
+        "email" : "dfilatov@yandex-team.ru"
+    }],
+    "repository":{
+        "type" : "git",
+        "url"  : "http://github.com/dfilatov/rou.git"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "mocha" : "",
+        "chai"  : "",
+        "istanbul" : "",
+        "uglify-js" : "1.3.4"
+    },
+    "main" : "lib/router",
+    "engines" : { "node" : ">= 0.4.0" },
+    "scripts" : {
+        "test" : "./node_modules/istanbul/lib/cli.js test test-runner.js"
+    }
+}
