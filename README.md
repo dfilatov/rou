@@ -19,10 +19,10 @@ router
             // controller action
         })
     .when('/objects/new')
-        .then('/objects', { new : 1 }) // rewrite to /objects/?new=1
+        .then('/objects', { new : 1 }) // rewrite /objects/new to /objects/?new=1
     .when('/objects/{type}')
-        .param('type', 'road')
-        .then('/objects') // rewrite to /objects/?type=road
+        .param('type', ['road', 'railway'])
+        .then('/objects') // rewrite /objects/road or /objects/railway to /objects/?type=road or /objects/?type=railway
     .otherwise(function() {
         show404();
     });
