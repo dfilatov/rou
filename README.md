@@ -26,4 +26,10 @@ router
     .otherwise(function() {
         show404();
     });
+    
+router.route({
+    method : 'get',
+    path   : '/objects/road',    
+    query  : { new : '1' }    
+});
 ````
