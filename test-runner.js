@@ -2,7 +2,7 @@ var Mocha = require('mocha'),
     fs = require('fs'),
     path = require('path');
 
-var mocha = new Mocha();
+var mocha = new Mocha({ reporter : 'spec' });
 
 fs.readdirSync('test')
     .filter(function(file){
