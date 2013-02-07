@@ -1,4 +1,6 @@
-this.Rou = (function() {
+(function(global) {
+
+var Rou = (function() {
 
 var modules = {},
     require = function(name) {
