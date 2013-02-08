@@ -1,0 +1,17 @@
+{
+    "name" : "rou-connect",
+    "version" : "0.0.0",
+    "private" : true,
+    "description" : "Rou + Connect",
+    "homepage" : "https://github.com/dfilatov/rou",
+    "keywords" : ["router"],
+    "author" : "Dmitry Filatov <dfilatov@yandex-team.ru>",
+    "contributors" : [{
+        "name"  : "Dmitry Filatov",
+        "email" : "dfilatov@yandex-team.ru"
+    }],
+    "dependencies": {
+        "connect" : ""
+    },
+    "engines" : { "node" : ">= 0.4.0" }
+}
