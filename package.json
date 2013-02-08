@@ -1,6 +1,6 @@
 {
     "name" : "rou",
-    "version" : "0.1.0",
+    "version" : "0.1.1",
     "description" : "Router",
     "homepage" : "https://github.com/dfilatov/rou",
     "keywords" : ["router"],
