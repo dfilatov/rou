@@ -15,13 +15,15 @@
     },
     "dependencies": {},
     "devDependencies": {
-        "mocha"     : "",
-        "chai"      : "",
-        "istanbul"  : "",
-        "requirejs" : ""
+        "mocha"      : "",
+        "chai"       : "",
+        "sinon-chai" : "",
+        "sinon"      : "",
+        "istanbul"   : "",
+        "requirejs"  : ""
     },
     "main" : "lib/router",
-    "engines" : { "node" : ">= 0.4.0" },
+    "engines" : { "node" : ">= 0.6.0" },
     "scripts" : {
         "test" : "./node_modules/istanbul/lib/cli.js test test-runner.js"
     }

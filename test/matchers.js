@@ -1,5 +1,4 @@
-var should = require('chai').should(),
-    matcherFactory = require('../lib/matcher'),
+var matcherFactory = require('../lib/matcher'),
     MethodMatcher = require('../lib/matchers/method'),
     ParamMatcher = require('../lib/matchers/param'),
     CustomMatcher = require('../lib/matchers/custom');
