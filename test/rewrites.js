@@ -40,4 +40,15 @@ describe('rewrites', function() {
         router.route({ path : '/objects', query : { new : 'new', a : 'b' } });
         spy1.should.have.been.calledWith({ path : '/23', query : { new : 'new', a : 'b', b : 'c', c : 'd', id : '23' }});
     });
+
+    it('should use each rewrite once', function() {
+        var spy = sinon.spy(),
+            router = Rou()
+                .when('/objects/{id}')
+                    .then('/objects/34')
+                .otherwise(spy);
+
+        router.route({ path : '/objects/12 '});
+        spy.should.have.been.calledWith({ path : '/objects/34', query : { id : "12" }});
+    });
 });
