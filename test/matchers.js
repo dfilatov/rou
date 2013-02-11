@@ -65,6 +65,13 @@ describe('param matcher', function() {
         matcher.match({ query : {}}).should.be.false;
     });
 
+    it('should match only if param no exists', function() {
+        var matcher = new ParamMatcher({ name : 'a', cond : false });
+        matcher.match({ query : { a : 'b' }}).should.be.false;
+        matcher.match({ query : { a : '' }}).should.be.false;
+        matcher.match({ query : {}}).should.be.true;
+    });
+
     it('should match param by string', function() {
         var matcher = new ParamMatcher({ name : 'a', cond : 'b' });
         matcher.match({ query : { a : 'b' }}).should.be.true;
