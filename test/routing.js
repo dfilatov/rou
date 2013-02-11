@@ -33,12 +33,31 @@ describe('routing', function() {
                 .when('/objects/{oid}')
                     .then(spy3);
 
-        router.route({ path : '/objects/23', query : { a : 'b' } });
+        router.route({ path : '/objects/23', query : { a : 'b' }});
 
         spy1.should.not.have.been.called;
         spy2.should.have.been.calledOnce;
         spy2.should.have.been.calledWith({ path : '/objects/23', query : { a : 'b', id : '23' }});
         spy3.should.not.have.been.called;
+    });
+
+    it('should route by path only if all matchers matched', function() {
+        var spy1 = sinon.spy(),
+            spy2 = sinon.spy(),
+            router = Rou()
+                .when('objects')
+                    .param('id', true)
+                    .param('type', 'railway')
+                    .then(spy1)
+                .when('objects')
+                    .param('id', true)
+                    .param('type', 'road')
+                    .then(spy2);
+
+        router.route({ path : '/objects/', query : { id : '12', type : 'road' }});
+
+        spy1.should.not.have.been.called;
+        spy2.should.have.been.calledOnce;
     });
 
     it('should continue route by path if action returns false', function() {
