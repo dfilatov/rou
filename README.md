@@ -24,8 +24,9 @@ var router = Rou();
 router
     .when('/objects/{oid}/slaves/{sid}')
         .method('get') // method should be 'get'
-        .param('new') // param 'new' should be        
-        .param('bounds', true) // param 'bounds' should be non-empty
+        .param('new', true) // param 'new' should be
+        .param('category', false) // param 'category' shouldn't be
+        .param('bounds') // param 'bounds' should be non-empty
         .param('geometry', 'polyline') // param 'bounds' should be 'polyline'
         .param('type', ['road', 'railway']) // param 'type' should be 'road' or 'railway'
         .param('oid', /^\d+$/) // param 'oid' should be integer

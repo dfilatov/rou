@@ -52,16 +52,9 @@ describe('param matcher', function() {
     });
 
     it('should match param if exists', function() {
-        var matcher = new ParamMatcher({ name : 'a' });
-        matcher.match({ query : { a : 'b' }}).should.be.true;
-        matcher.match({ query : { a : '' }}).should.be.true;
-        matcher.match({ query : {}}).should.be.false;
-    });
-
-    it('should match only non-empty param', function() {
         var matcher = new ParamMatcher({ name : 'a', cond : true });
         matcher.match({ query : { a : 'b' }}).should.be.true;
-        matcher.match({ query : { a : '' }}).should.be.false;
+        matcher.match({ query : { a : '' }}).should.be.true;
         matcher.match({ query : {}}).should.be.false;
     });
 
@@ -70,6 +63,13 @@ describe('param matcher', function() {
         matcher.match({ query : { a : 'b' }}).should.be.false;
         matcher.match({ query : { a : '' }}).should.be.false;
         matcher.match({ query : {}}).should.be.true;
+    });
+
+    it('should match only non-empty param', function() {
+        var matcher = new ParamMatcher({ name : 'a' });
+        matcher.match({ query : { a : 'b' }}).should.be.true;
+        matcher.match({ query : { a : '' }}).should.be.false;
+        matcher.match({ query : {}}).should.be.false;
     });
 
     it('should match param by string', function() {
