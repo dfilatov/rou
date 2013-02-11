@@ -1,8 +1,23 @@
-rou
+Rou
 ===
 
-Router
+Url-based router for Node.js and browsers.
 
+Getting Started
+---------------
+###In the Node.js###
+You can install using Node Package Manager (npm):
+
+    npm install rou
+
+###In the Browsers###
+```html
+<script type="text/javascript" src="rou.min.js"></script>
+```
+Also RequireJS module format supported.
+
+API
+---
 ````javascript
 var router = Rou();
 
