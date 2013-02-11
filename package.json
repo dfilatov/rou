@@ -15,12 +15,14 @@
     },
     "dependencies": {},
     "devDependencies": {
-        "mocha"      : "",
-        "chai"       : "",
-        "sinon-chai" : "",
-        "sinon"      : "",
-        "istanbul"   : "",
-        "requirejs"  : ""
+        "mocha"                : "",
+        "chai"                 : "",
+        "sinon-chai"           : "",
+        "sinon"                : "",
+        "istanbul"             : "",
+        "requirejs"            : "",
+        "grunt"                : "0.4.0rc7",
+        "grunt-contrib-jshint" : "0.1.1rc6"
     },
     "main" : "lib/router",
     "engines" : { "node" : ">= 0.6.0" },
