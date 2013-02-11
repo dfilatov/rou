@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css"/>
+    <script type="text/javascript" src="http://yandex.st/jquery/1.9.1/jquery.js"></script>
+    <script type="text/javascript" src="../../rou.min.js"></script>
+</head>
+<body>
+    <div class="navigation">
+        <a href="#/">index</a> | <a href="#/products/">products</a> | <a href="#/products/?id=12">product</a>
+    </div>
+    <div class="page page_index">
+        index page
+    </div>
+    <div class="page page_products">
+        products page
+    </div>
+    <div class="page page_product">
+        product page
+    </div>
+    <div class="page page_404">
+        not found
+    </div>
+</body>
+<script type="text/javascript">
+
+var router = Rou()
+        .when('/')
+            .then(function() {
+                showPage('index');
+            })
+        .when('/products/')
+            .param('id', /^\d+$/)
+            .then(function(req) {
+                showPage('product');
+            })
+        .when('/products')
+            .then(function() {
+                showPage('products');
+            })
+        .otherwise(function() {
+            showPage('404');
+        }),
+    curPage = null;
+
+function showPage(type) {
+    curPage && curPage.removeClass('page_active');
+    (curPage = $('.page_' + type)).addClass('page_active');
+}
+
+function parseUrl(url) {
+    var res = {};
+
+    if(url.indexOf('?') > -1) {
+        var splittedUrl = url.split('?');
+        res.path = splittedUrl[0];
+        res.query = {};
+        splittedUrl[1].split('&').forEach(function(part) {
+            var splittedPart = part.split('=');
+            res.query[splittedPart[0]] = splittedPart.length > 1? decodeURIComponent(splittedPart[1]) : '';
+        });
+    }
+    else {
+        res.path = url;
+        res.query = {};
+    }
+
+    return res;
+}
+
+function onHashChanged(e) {
+    router.route(parseUrl(document.location.hash.substr(1)));
+}
+
+$(window).on('hashchange', onHashChanged);
+
+onHashChanged();
+
+</script>
+</html>
