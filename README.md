@@ -1,4 +1,4 @@
-Rou
+Rou [![Build Status](https://secure.travis-ci.org/dfilatov/rou.png)](http://travis-ci.org/dfilatov/rou)
 ===
 
 Url-based router for Node.js and browsers.
