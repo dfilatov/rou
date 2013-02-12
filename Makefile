@@ -1,5 +1,5 @@
 test:
-	node test-runner.js
+	node test/runner.js
 
 RJS := ./node_modules/requirejs/bin/r.js
 

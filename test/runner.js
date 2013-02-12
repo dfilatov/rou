@@ -3,12 +3,12 @@ var Mocha = require('mocha'),
     path = require('path'),
     mocha = new Mocha({ reporter : 'spec' });
 
-fs.readdirSync('test')
+fs.readdirSync(__dirname)
     .filter(function(file){
-        return path.extname(file) === '.js';
+        return file !== 'runner.js';
     })
     .forEach(function(file) {
-        mocha.addFile(path.join('test', file));
+        mocha.addFile(path.join(__dirname, file));
     });
 
 mocha.run(function(failures){
