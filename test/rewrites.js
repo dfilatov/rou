@@ -48,7 +48,29 @@ describe('rewrites', function() {
                     .then('/objects/34')
                 .otherwise(spy);
 
-        router.route({ path : '/objects/12 '});
-        spy.should.have.been.calledWith({ path : '/objects/34', query : { id : "12" }});
+        router.route({ path : '/objects/12' });
+        spy.should.have.been.calledWith({ path : '/objects/34', query : { id : '12' }});
+    });
+
+    it('should rewrite in otherwise', function() {
+        var spy = sinon.spy(),
+            router = Rou()
+                .when('/objects/')
+                    .then(spy)
+                .otherwise('/objects/');
+
+        router.route({ path : '/' });
+        spy.should.have.been.calledWith({ path : '/objects/', query : {}});
+    });
+
+    it('should rewrite in otherwise once', function() {
+        var spy = sinon.spy(),
+            router = Rou()
+                .when('/objects')
+                    .then(spy)
+                .otherwise('/');
+
+        router.route({ path : '/' });
+        spy.should.not.have.been.called;
     });
 });
