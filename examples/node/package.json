@@ -1,0 +1,15 @@
+{
+    "name" : "rou-node",
+    "version" : "0.0.0",
+    "private" : true,
+    "description" : "Rou + Node.js",
+    "homepage" : "https://github.com/dfilatov/rou",
+    "keywords" : ["router"],
+    "author" : "Dmitry Filatov <dfilatov@yandex-team.ru>",
+    "contributors" : [{
+        "name"  : "Dmitry Filatov",
+        "email" : "dfilatov@yandex-team.ru"
+    }],
+    "dependencies": {},
+    "engines" : { "node" : ">= 0.4.0" }
+}
